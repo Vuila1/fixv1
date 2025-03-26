@@ -1,4 +1,4 @@
-﻿using RestaurantManagementApp;
+using RestaurantManagementApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,14 @@ while (running)
             break;
 
         case "3":
-            object value = restaurant.UserManager.ManageEmployees();
+            if (restaurant.UserManager is UserManager userManager)
+            {
+                userManager.ManageEmployees();
+            }
+            else
+            {
+                Console.WriteLine("UserManager is not set correctly.");
+            }
             break;
 
         case "4":
